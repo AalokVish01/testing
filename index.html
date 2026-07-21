@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Mehwish! | My Whole World</title>
+    <!-- Premium Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Great+Vibes&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           1. CORE VARIABLES & BASE STYLES
+           ========================================== */
+        :root {
+            --primary-pink: #ff6699;
+            --dark-pink: #ff3377;
+            --soft-pink: #fff0f5;
+            --light-bg: #fff5f7; /* Soft blush pink backdrop */
+            --accent-gold: #ffd700;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --grid-color: rgba(255, 102, 153, 0.08);
+            
+            --bubble-font: 'Bubblegum Sans', cursive;
+            --script-font: 'Great Vibes', cursive;
+            --body-font: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar for Smooth Long-Scroll Experience */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--soft-pink);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-pink);
+            border-radius: 5px;
+        }
+
+        /* Utility Components */
+        .pink-grid-bg {
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+        }
+
+        /* ==========================================
+           2. PASSWORD LOCK SCREEN STYLES
+           ========================================== */
+        #lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        #lock-screen.unlocked {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(1.1);
+        }
+
+        .lock-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 102, 153, 0.2);
+            padding: 50px 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(15px);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .lock-title {
+            font-family: var(--bubble-font);
+            color: var(--primary-pink);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .lock-subtitle {
+            color: #cccccc;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .password-wrapper input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 102, 153, 0.4);
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--text-light);
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 4px;
+            outline: none;
+            margin-bottom: 25px;
+        }
+
+        .unlock-btn {
+            background: linear-gradient(90deg, var(--primary-pink), var(--dark-pink));
+            color: var(--text-light);
+            font-family: var(--bubble-font);
+            font-size: 1.4rem;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(255, 102, 153, 0.4);
+        }
+
+        .error-msg {
+            color: #ff3333;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* ==========================================
+           3. FLOATING DECORATIONS ENGINE (🧸🍫🚗)
+           ========================================== */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 99;
+            animation: flyUp linear infinite;
+        }
+
+        @keyframes flyUp {
+            0% { transform: translateY(105vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-15vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Hanging Garlands on Page Edges */
+        .garland-left, .garland-right {
+            position: absolute;
+            top: 0;
+            width: 45px;
+            height: 100%;
+            background-image: repeat-y;
+            font-size: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            opacity: 0.6;
+            z-index: 5;
+            padding-top: 50px;
+        }
+        .garland-left { left: 10px; }
+        .garland-right { right: 10px; }
+
+        /* ==========================================
+           4. SIDEBAR BLANK-SPACE FILLER WIDGETS
+           ========================================== */
+        .side-widget {
+            position: absolute;
+            width: 250px;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .side-widget:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+        }
+
+        /* Left Side Absolute Placements */
+        #polaroid-left-1 {
+            top: 15%;
+            left: 5%;
+            transform: rotate(-8deg);
+        }
+        #ldr-tracker-widget {
+            top: 45%;
+            left: 4%;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(255,102,153,0.15);
+            border: 2px solid var(--soft-pink);
+            text-align: center;
+        }
+        #love-reasons-sticky {
+            top: 72%;
+            left: 5%;
+            background: #fffeb3; /* Classic sticky note yellow */
+            transform: rotate(5deg);
+            padding: 20px;
+            box-shadow: 5px 10px 20px rgba(0,0,0,0.1);
+            font-family: var(--body-font);
+            border-radius: 4px;
+        }
+
+        /* Right Side Absolute Placements */
+        #polaroid-right-1 {
+            top: 12%;
+            right: 5%;
+            transform: rotate(6deg);
+        }
+        #polaroid-right-2 {
+            top: 48%;
+            right: 4%;
+            transform: rotate(-6deg);
+        }
+        #chocolate-box-interactive {
+            top: 75%;
+            right: 5%;
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(255,102,153,0.15);
+            border: 2px solid var(--soft-pink);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Polaroid Decorative Card Styles */
+        .mini-polaroid {
+            background: white;
+            padding: 12px 12px 24px 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .mini-polaroid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+        .mini-polaroid p {
+            font-family: var(--script-font);
+            font-size: 1.8rem;
+            color: var(--dark-pink);
+            line-height: 1.1;
+        }
+
+        /* Interactive Candy Jar Elements */
+        .candy-jar {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 8px;
+            animation: floatCard 3s ease-in-out infinite;
+        }
+
+        /* ==========================================
+           5. HERO & MAIN WRAPPER LAYOUT
+           ========================================== */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 2s ease;
+            position: relative;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            background: var(--light-bg);
+        }
+
+        .decorative-bunting {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-image: radial-gradient(circle at 50% 0%, var(--primary-pink) 20px, transparent 21px);
+            background-size: 60px 60px;
+            opacity: 0.5;
+            z-index: 6;
+        }
+
+        .hero-title {
+            font-family: var(--bubble-font);
+            font-size: 4.8rem;
+            color: var(--primary-pink);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.05);
+            z-index: 3;
+        }
+
+        .date-badge {
+            background: linear-gradient(90deg, var(--primary-pink), var(--dark-pink));
+            color: white;
+            font-family: var(--body-font);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 25px;
+            border-radius: 50px;
+            margin-bottom: 35px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(255,102,153,0.3);
+            z-index: 3;
+        }
+
+        .profile-container {
+            position: relative;
+            margin-bottom: 50px;
+            padding: 20px;
+            z-index: 3;
+        }
+
+        .profile-container::before {
+            content: '🧸';
+            position: absolute;
+            font-size: 3rem;
+            top: -20px;
+            right: -20px;
+            z-index: 4;
+            animation: spin 8s linear infinite;
+        }
+
+        .profile-container::after {
+            content: '🎁';
+            position: absolute;
+            font-size: 2.8rem;
+            bottom: -15px;
+            left: -20px;
+            z-index: 4;
+            animation: floatCard 3s ease-in-out infinite;
+        }
+
+        .avatar-frame {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 10px solid white;
+            box-shadow: 0 15px 40px rgba(255,102,153,0.3);
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-ribbon {
+            background: #fff;
+            border: 2px solid var(--primary-pink);
+            color: #444;
+            font-family: var(--script-font);
+            font-size: 2.8rem;
+            font-weight: bold;
+            padding: 2px 45px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: -30px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Countdown Engine Styles */
+        .countdown-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            width: 90%;
+            margin-top: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 102, 153, 0.15);
+            border: 1px solid rgba(255, 102, 153, 0.15);
+            z-index: 3;
+        }
+
+        .cd-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            display: block;
+        }
+
+        .cd-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #777;
+            font-weight: 600;
+        }
+
+        /* Floating music bar player overlay */
+        .music-controller {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: white;
+            padding: 12px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--soft-pink);
+        }
+
+        .music-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-pink);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        /* ==========================================
+           6. MIDDLE LAYOUT PANELS (Slider & Letter)
+           ========================================== */
+        .section-divider {
+            padding: 120px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--light-bg);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--bubble-font);
+            font-size: 3.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .slider-wrapper {
+            width: 90%;
+            max-width: 950px;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(255,102,153,0.2);
+            border: 8px solid white;
+            z-index: 4;
+        }
+
+        .slides-container {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            height: 580px;
+        }
+
+        .slide-item {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 50px;
+            color: white;
+        }
+
+        .slide-caption {
+            font-family: var(--script-font);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 55px;
+            height: 55px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: var(--dark-pink);
+            z-index: 10;
+        }
+        .nav-left { left: 25px; }
+        .nav-right { right: 25px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background: var(--primary-pink);
+            width: 35px;
+            border-radius: 10px;
+        }
+
+        /* ---------------- LETTER ---------------- */
+        .letter-bg-section {
+            background: #fff0f3;
+            padding: 130px 20px;
+            position: relative;
+        }
+
+        .scroll-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fffdf9;
+            border-radius: 6px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            border-left: 5px solid #f3ebe1;
+            border-right: 5px solid #f3ebe1;
+            position: relative;
+            padding: 70px 60px;
+            min-height: 550px;
+        }
+
+        .scroll-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50px;
+            width: 2px; height: 100%;
+            background: rgba(255, 102, 153, 0.15);
+        }
+
+        .letter-header {
+            font-family: var(--script-font);
+            font-size: 3.8rem;
+            color: var(--dark-pink);
+            margin-bottom: 50px;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            padding-bottom: 15px;
+        }
+
+        .typewriter-container {
+            font-size: 1.25rem;
+            line-height: 2.1;
+            color: #444;
+            min-height: 350px;
+            white-space: pre-wrap;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 3px;
+            height: 1.3rem;
+            background-color: var(--primary-pink);
+            margin-left: 5px;
+            animation: typeBlink 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes typeBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .signature-box {
+            margin-top: 70px;
+            text-align: right;
+            font-family: var(--script-font);
+            font-size: 3rem;
+            color: var(--primary-pink);
+            opacity: 0;
+            transition: opacity 2.5s ease;
+        }
+        .signature-box.show { opacity: 1; }
+
+        /* ==========================================
+           7. ROADMAP & CLOSING PIPELINE
+           ========================================== */
+        .milestone-container {
+            max-width: 950px;
+            width: 90%;
+            margin: 70px auto;
+            position: relative;
+        }
+
+        .milestone-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: white;
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -2px;
+            box-shadow: 0 0 10px rgba(255,102,153,0.3);
+        }
+
+        .milestone-card {
+            padding: 30px 35px;
+            position: relative;
+            background-color: white;
+            width: 45%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255,102,153,0.1);
+            border: 2px solid white;
+            margin-bottom: 50px;
+        }
+
+        .milestone-card::after {
+            content: '💝';
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            right: -52px;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(255,102,153,0.3);
+        }
+
+        .m-left { left: 0; }
+        .m-right { left: 55%; }
+        .m-right::after { left: -47px; }
+
+        .milestone-title {
+            font-family: var(--bubble-font);
+            color: var(--primary-pink);
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: linear-gradient(0deg, #ffeff3 0%, var(--light-bg) 100%);
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .footer-bubble {
+            font-family: var(--bubble-font);
+            font-size: 2.8rem;
+            color: var(--dark-pink);
+        }
+
+        /* Responsive Breakpoints for Mobile & Smaller Screens */
+        @media (max-width: 1200px) {
+            /* On medium/small screens, absolute side-widgets stack naturally or hide to prevent overlaps */
+            .side-widget {
+                position: relative !important;
+                left: 0 !important;
+                right: 0 !important;
+                top: 0 !important;
+                margin: 20px auto !important;
+                width: 90% !important;
+                max-width: 340px;
+                transform: none !important;
+            }
+            .garland-left, .garland-right { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.2rem; }
+            .cd-number { font-size: 2rem; }
+            .countdown-box { grid-template-columns: repeat(2, 1fr); }
+            .slides-container { height: 380px; }
+            .scroll-container { padding: 40px 25px; }
+            .milestone-container::after { left: 31px; }
+            .milestone-card { width: 100%; left: 0 !important; margin-left: 60px; }
+            .milestone-card::after { left: -44px !important; }
+        }
+    </style>
+</head>
+<body class="pink-grid-bg">
+
+    <!-- ==========================================
+       1. EXCLUSIVE SECURITY GATEWAY
+       ========================================== -->
+    <div id="lock-screen">
+        <div class="lock-card">
+            <div class="lock-title">Hey Jannahh🫀!</div>
+            <div class="lock-subtitle">Hey Beautiful Enjoy your special day with Some amazing gift for you. Please Enter Your Birthday day Date..</div>
+            <div class="password-wrapper">
+                <input type="password" id="gate-pass" placeholder="••••" maxlength="12">
+                <div class="error-msg" id="lock-err">That's not it love! Hint: Your special birthday day (DDMM)!</div>
+            </div>
+            <button class="unlock-btn" onclick="verifyIdentity()">Unlock My Heart 🔑💝</button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+       2. PRIMARY WEBSITE APPLICATION WORKSPACE
+       ========================================== -->
+    <div id="main-content">
+        
+        <!-- Hanging Decorative Garlands (Heart Vines) on Screen Edges -->
+        <div class="garland-left">🌸<br>❤️<br>🌸<br>❤️<br>🌸<br>❤️<br>🌸<br>❤️<br>🌸</div>
+        <div class="garland-right">🌸<br>❤️<br>🌸<br>❤️<br>🌸<br>❤️<br>🌸<br>❤️<br>🌸</div>
+
+        <!-- LEFT MARGIN LOVE DECOR WIDGETS -->
+        <!-- Widget 1: Hanging Polaroid Frame (Left) -->
+        <div class="side-widget mini-polaroid" id="polaroid-left-1">
+            <img src="day.jpeg">
+            <p>Our Favourite Day 💖</p>
+        </div>
+
+        <!-- Widget 2: Long Distance Relationship Tracker -->
+        <div class="side-widget" id="ldr-tracker-widget">
+            <h4 style="font-family: var(--bubble-font); color: var(--primary-pink); font-size: 1.2rem; margin-bottom: 8px;">Distance Tracker ✈️</h4>
+            <div style="display: flex; align-items: center; justify-content: space-around; font-size: 1.3rem;">
+                <span>🏠 Me</span>
+                <span style="border-bottom: 2px dashed var(--primary-pink); width: 60px; display: inline-block; position: relative; bottom: 5px;"></span>
+                <span>👸 Jannahh</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #777; margin-top: 10px; font-style: italic;">"No matter how far, my heart remains right next to yours."</p>
+        </div>
+
+        <!-- Widget 3: Reasons Sticky-Note -->
+        <div class="side-widget" id="love-reasons-sticky">
+            <h4 style="font-family: var(--script-font); font-size: 1.8rem; color: #333; margin-bottom: 5px; border-bottom: 1px solid rgba(0,0,0,0.1);">3 Things I Love...</h4>
+            <ul style="font-size: 0.85rem; list-style-type: none; line-height: 1.5; color: #444;">
+                <li>🌻 Your gorgeous smile</li>
+                <li>🧸 Your great Strength</li>
+                <li>✨ The way you love me </li>
+            </ul>
+        </div>
+
+
+        <!-- RIGHT MARGIN LOVE DECOR WIDGETS -->
+        <!-- Widget 4: Polaroid Frame (Right Top) -->
+        <div class="side-widget mini-polaroid" id="polaroid-right-1">
+            <img src="sparkle.jpg">
+            <p>You Sparkle ✨</p>
+        </div>
+
+        <!-- Widget 5: Polaroid Frame (Right Middle) -->
+        <div class="side-widget mini-polaroid" id="polaroid-right-2">
+            <img src="vedio.jpg" alt="Memory Right 2">
+            <p>Cute Video Call 🎥</p>
+        </div>
+
+        <!-- Widget 6: Clickable Virtual Candy/Heart Jar -->
+        <div class="side-widget" id="chocolate-box-interactive" onclick="popCandyText()">
+            <div class="candy-jar">🍯</div>
+            <h4 style="font-family: var(--bubble-font); color: #8B4513; font-size: 1.1rem; margin-bottom: 3px;">Candy Jar 🍫</h4>
+            <p style="font-size: 0.75rem; color: #666;">Tap to open a sweet chocolate message!</p>
+        </div>
+
+        <!-- Music Player Engine Element -->
+        <div class="music-controller">
+            <span class="music-status" id="track-status">Playing Track...</span>
+            <button class="music-btn" onclick="toggleAudio()" id="play-pause-icon">⏸</button>
+        </div>
+        
+        <!-- Background Audio Stream Reference -->
+        <audio id="romantic-audio" loop>
+            <source src="sab.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- HERO BRANDING AND COUNTDOWN -->
+        <header class="hero-section">
+            <div class="decorative-bunting"></div>
+            <h1 class="hero-title">Happy Birthday<br>To My Whole World!</h1>
+            
+            <div class="date-badge">
+                <span>📅</span> 22th JULY 
+            </div>
+
+            <div class="profile-container">
+                <div class="avatar-frame">
+                    <img src="main.png" alt="Mehwish Portrai" alt="Mehwish Portrait">
+                </div>
+                <div class="name-ribbon">Dear Jaanaahhh </div>
+            </div>
+
+            <!-- Live Precision Countdown Engine ⏳ -->
+            <div class="countdown-box">
+                <div class="cd-segment">
+                    <span class="cd-number" id="days-val">00</span>
+                    <span class="cd-label">Days</span>
+                </div>
+                <div class="cd-segment">
+                    <span class="cd-number" id="hours-val">00</span>
+                    <span class="cd-label">Hours</span>
+                </div>
+                <div class="cd-segment">
+                    <span class="cd-number" id="min-val">00</span>
+                    <span class="cd-label">Minutes</span>
+                </div>
+                <div class="cd-segment">
+                    <span class="cd-number" id="sec-val">00</span>
+                    <span class="cd-label">Seconds</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==========================================
+           3. SLIDESHOW CAROUSEL CORE GALLERY 📸
+           ========================================== -->
+        <section class="section-divider">
+            <h2 class="section-title">Captured Memories</h2>
+            <p style="color:#666; text-align:center; max-width:600px; margin-bottom:60px; line-height:1.6;">Every single photo holds a piece of my heart. Wishing You a that these moments return fastly.</p>
+            
+            <div class="slider-wrapper">
+                <button class="slider-nav nav-left" onclick="changeSlide(-1)">❮</button>
+                <div class="slides-container" id="main-slider">
+                    <!-- Slide 1 -->
+                    <div class="slide-item" style="background-image: url('Favourite.png');">
+                        <div class="slide-overlay">
+                            <div class="slide-caption">That beautiful smile I fall for every single day...</div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide-item" style="background-image: url('2.jpg');">
+                        <div class="slide-overlay">
+                            <div class="slide-caption">No matter how long the screen time is, you look perfect...</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav nav-right" onclick="changeSlide(1)">❯</button>
+            </div>
+            <div class="slider-dots" id="dots-container"></div>
+        </section>
+
+        <!-- ==========================================
+           4. IMMERSIVE TYPING LOVE SCROLL 💬
+           ========================================== -->
+        <section class="letter-bg-section">
+            <div class="scroll-container">
+                <div class="letter-header">My Letter to You...</div>
+                
+                <div class="typewriter-container"><span id="live-typing"></span><span class="cursor-blink"></span></div>
+                
+                <div class="signature-box" id="letter-sig">
+                    Yours Forever & Always ❤️
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           5. MILESTONES ROADMAP PIPELINE
+           ========================================== -->
+        <section class="section-divider">
+            <h2 class="section-title">Our Love Story</h2>
+            <div class="milestone-container">
+                <div class="milestone-card m-left">
+                    <div class="milestone-title">Day One ✨</div>
+                    <p style="color:#666;">Remebering You that how we meet firstly through an study app 😁 it's the first moment of my entire life That I had talked to someone until 1AM. </p>
+                </div>
+                <div class="milestone-card m-right">
+                    <div class="milestone-title">In relationship ✈️</div>
+                    <p style="color:#666;"> Did you know we just entered the relationship 😁 i was an unbelievable moment for us</p>
+                </div>
+                <div class="milestone-card m-left">
+                    <div class="milestone-title">Up's And Downs 📊</div>
+                    <p style="color:#666;">After 4–5 breakups and countless intense fights, after promising never to talk to each other again, somehow, they’re still together today.</p>
+                </div>
+                <div class="milestone-card m-right">
+                    <div class="milestone-title">Today: Your Special Day 🎂</div>
+                    <p style="color:#666;"> Wishing You the One Of the Bes Birthday this year God Bless uh and Full fill your every wish ✨</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER SUMMARY BLOCK -->
+        <footer>
+            <div class="footer-bubble">Happy Birthday Betuuuuuu🧿!</div>
+            <p style="color: #999; font-size: 0.95rem; margin-top: 10px;">Aapka pyara sa Baccha this side... </p>
+        </footer>
+
+    </div>
+
+    <!-- ==========================================
+       8. COMPLEX MULTI-ENGINE LOGIC JAVASCRIPT
+       ========================================== -->
+    <script>
+        let activeSlideIdx = 0;
+        const passwordKey = "2207"; // Default Password
+        
+        const letterParagraphs = [
+            "My Cutie Potato ,\n\n",
+            "Happy Birthday, my beautiful girl! 🎂✨ I Know there if very few people in you life but iam one of them So It's my duty to make it special.. Enjoy Your Special day May wish you once again happy Birthday stay foreever with me until we died together ..\n\n",
+            "This distance is tough sometimes, but loving you is the easiest thing I've ever done. Distance only teaches us how beautiful it is when we are together. Every single morning I wake up feeling insanely grateful knowing that you are in my life. You are my anchor, my constant happiness, and the sweetest dream come true.\n\n",
+            "Aaj ke iss sabse special din par, main tumse door zaroor hoon, par mera har ek khayal, meri har ek dua sirf tumhare paas hai. Main waada karta hoon ki jald hi ye dooriyan khatam ho jayengi, aur hum hamesha ke liye ek saath honge.\n\n",
+            "Thank you for your warm laughs, your pure patience, and the beautiful light you bring into my world. May this year bring you endless happiness, boundless success, and everything your beautiful heart desires.\n\n",
+            "Eat lots of cake, smile until your cheeks hurt, and remember that there is someone across the distance who loves you more than words can ever describe. Happy Birthday, my absolute world! ❤️"
+        ];
+
+        // 1. GATEWAY SUBMISSION
+        function verifyIdentity() {
+            const inputVal = document.getElementById('gate-pass').value.trim();
+            const errEl = document.getElementById('lock-err');
+            
+            if(inputVal === passwordKey) {
+                document.getElementById('lock-screen').classList.add('unlocked');
+                document.getElementById('main-content').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('main-content').style.opacity = '1';
+                    initializeApplicationEngines();
+                }, 100);
+            } else {
+                errEl.style.display = 'block';
+            }
+        }
+
+        document.getElementById('gate-pass').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') verifyIdentity();
+        });
+
+        // 2. MAIN BOOTSTRAPPER
+        function initializeApplicationEngines() {
+            startAudioPlayback();
+            runCountdownEngine();
+            buildSliderSystem();
+            startParticleGenerator();
+            setTimeout(startTypewriterEngine, 2000);
+        }
+
+        // 3. AUDIO MANAGEMENT
+        const audioObj = document.getElementById('romantic-audio');
+        function startAudioPlayback() {
+            audioObj.play().catch(err => {
+                document.getElementById('track-status').innerText = "Click Play to Hear Music 🎵";
+                document.getElementById('play-pause-icon').innerText = "▶";
+            });
+        }
+
+        function toggleAudio() {
+            const btn = document.getElementById('play-pause-icon');
+            const status = document.getElementById('track-status');
+            if(audioObj.paused) {
+                audioObj.play();
+                btn.innerText = "⏸";
+                status.innerText = "Playing Track...";
+            } else {
+                audioObj.pause();
+                btn.innerText = "▶";
+                status.innerText = "Music Paused";
+            }
+        }
+
+        // 4. PRECISION COUNTDOWN TIMING ENGINE
+        function runCountdownEngine() {
+            const targetDate = new Date(`July 22, ${new Date().getFullYear()} 00:00:00`).getTime();
+            
+            function calculateDelta() {
+                const rightNow = new Date().getTime();
+                let delta = targetDate - rightNow;
+                if (delta < 0) {
+                    const nextYear = new Date().getFullYear() + 1;
+                    delta = new Date(`May 27, ${nextYear} 00:00:00`).getTime() - rightNow;
+                }
+                const d = Math.floor(delta / (1000 * 60 * 60 * 24));
+                const h = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((delta % (1000 * 60)) / 1000);
+
+                document.getElementById('days-val').innerText = String(d).padStart(2, '0');
+                document.getElementById('hours-val').innerText = String(h).padStart(2, '0');
+                document.getElementById('min-val').innerText = String(m).padStart(2, '0');
+                document.getElementById('sec-val').innerText = String(s).padStart(2, '0');
+            }
+            calculateDelta();
+            setInterval(calculateDelta, 1000);
+        }
+
+        // 5. SLIDER CONTEXT STRUCTURE ENGINE
+        function buildSliderSystem() {
+            const slider = document.getElementById('main-slider');
+            const slides = slider.getElementsByClassName('slide-item');
+            const dotsContainer = document.getElementById('dots-container');
+            
+            for(let i=0; i < slides.length; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if(i === 0) dot.classList.add('active');
+                dot.setAttribute('onclick', `jumpToSlide(${i})`);
+                dotsContainer.appendChild(dot);
+            }
+            setInterval(() => { changeSlide(1); }, 7000);
+        }
+
+        function syncSliderDOM() {
+            const slider = document.getElementById('main-slider');
+            const dots = document.getElementById('dots-container').getElementsByClassName('dot');
+            slider.style.transform = `translateX(-${activeSlideIdx * 100}%)`;
+            for(let i=0; i<dots.length; i++) { dots[i].classList.remove('active'); }
+            if(dots.length > 0) dots[activeSlideIdx].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            const slider = document.getElementById('main-slider');
+            const totalSlides = slider.getElementsByClassName('slide-item').length;
+            if(totalSlides === 0) return;
+            activeSlideIdx += direction;
+            if(activeSlideIdx >= totalSlides) activeSlideIdx = 0;
+            if(activeSlideIdx < 0) activeSlideIdx = totalSlides - 1;
+            syncSliderDOM();
+        }
+
+        function jumpToSlide(index) {
+            activeSlideIdx = index;
+            syncSliderDOM();
+        }
+
+        // 6. ASYNCHRONOUS CHARACTER TYPING SIMULATOR ENGINE
+        function startTypewriterEngine() {
+            const targetDisplay = document.getElementById('live-typing');
+            const combinedString = letterParagraphs.join("");
+            let cursorPosition = 0;
+            const typingVelocity = 50;
+
+            function outputCharacter() {
+                if(cursorPosition < combinedString.length) {
+                    targetDisplay.textContent += combinedString.charAt(cursorPosition);
+                    cursorPosition++;
+                    let currentVelocity = typingVelocity;
+                    const char = combinedString.charAt(cursorPosition - 1);
+                    if(char === '.' || char === '!' || char === '🎂') currentVelocity = 700;
+                    if(char === ',') currentVelocity = 350;
+                    setTimeout(outputCharacter, currentVelocity);
+                } else {
+                    document.getElementById('letter-sig').classList.add('show');
+                }
+            }
+            outputCharacter();
+        }
+
+        // 7. DECORATIVE PARTICLE GENERATOR ENGINE (🧸🍫🚗💖)
+        function startParticleGenerator() {
+            const symbols = ['🧸', '🍫', '🎁', '💝', '💐', '✨', '🎈', '💖', '🏎️'];
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                particle.style.left = Math.random() * 100 + 'vw';
+                
+                const duration = Math.random() * 5 + 7;
+                particle.style.animationDuration = duration + 's';
+                particle.style.fontSize = Math.random() * 1.8 + 1.2 + 'rem';
+                particle.style.transform = `rotate(${Math.random() * 360}deg)`;
+                particle.style.opacity = Math.random() * 0.5 + 0.4;
+                
+                document.body.appendChild(particle);
+                setTimeout(() => { particle.remove(); }, duration * 1000);
+            }, 500);
+        }
+
+        // 8. INTERACTIVE JAR CLICK FUNCTION
+        const candyPhrases = [
+            "Sweetest chocolate for the sweetest girl! 🍫",
+            "Here's a big virtual bear hug for you! 🧸",
+            "A small sweet kiss coming through the miles! 💋",
+            "You make my life sweeter than any candy ever could! 🍬",
+            "Can't wait to buy you real boxes of chocolates soon! 💝"
+        ];
+        function popCandyText() {
+            const randomPhrase = candyPhrases[Math.floor(Math.random() * candyPhrases.length)];
+            alert(randomPhrase);
+        }
+    </script>
+</body>
+</html>
